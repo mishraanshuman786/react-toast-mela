@@ -23,15 +23,11 @@ You can install `react-toast-mela` using npm or yarn:
 
 bash
 
-Copy code
-
 `npm install react-toast-mela`
 
 or
 
 bash
-
-Copy code
 
 `yarn add react-toast-mela`
 
@@ -43,37 +39,22 @@ To use `react-toast-mela`, follow these steps:
 
     jsx
 
-    Copy code
-
-    `import Toast from 'react-toast-mela';`
+    `import {Toast} from 'react-toast-mela';`
 
 2.  **Render the Toast component in your application:**
-
     You need to manage the state of the toast message and its visibility. Here’s a simple example:
-
-    jsx
-
-    Copy code
-
-    `import React, { useState } from 'react';
-    import Toast from 'react-toast-mela';
-
+    jsx  
+     `import React, { useState } from 'react';
+    import {Toast} from 'react-toast-mela';
     const App = () => {
     const [showToast, setShowToast] = useState(false);
-
-    const handleShowToast = () => {
-    setShowToast(true);
-    setTimeout(() => setShowToast(false), 3000); // Hide toast after 3 seconds
-    };
-
     return (
     <div>
-    <button onClick={handleShowToast}>Show Toast</button>
-    {showToast && <Toast message="Hello, World!" />}
+    <button onClick={()=>setShowToast(true)}>Show Toast</button>
+    {showToast && <Toast message="Toast Message!" duration={3000} onClose={()=>setShowToast(false)} />}
     </div>
     );
     };
-
     export default App;`
 
 ## Props
@@ -81,15 +62,12 @@ To use `react-toast-mela`, follow these steps:
 The `Toast` component accepts the following props:
 
 - **`message`** (string): The message to display in the toast. This is a required prop.
-- **`duration`** (number): The duration (in milliseconds) for which the toast will be visible. Default is `3000` ms.
+- **`duration`** (number): The duration (in milliseconds) for which the toast will be visible. Default is `3000` ms. This prop is Optional.
 - **`onClose`** (function): A callback function that is called when the toast is closed.
 
 ### Example
 
 jsx
-
-Copy code
-
 `<Toast 
   message="This is a custom toast message!" 
   duration={5000} 
@@ -101,9 +79,6 @@ Copy code
 You can customize the appearance of the toast by overriding the inline styles provided in the `Toast` component. For example:
 
 jsx
-
-Copy code
-
 `<Toast 
   message="Custom styled toast!" 
   style={{ backgroundColor: 'blue', color: 'yellow', padding: '15px' }} 
@@ -114,23 +89,15 @@ Copy code
 Here’s a more detailed example showing different ways to use and customize the `Toast` component:
 
 jsx
-
-Copy code
-
 `import React, { useState } from 'react';
-import Toast from 'react-toast-mela';
+import {Toast} from 'react-toast-mela';
 
 const App = () => {
 const [showToast, setShowToast] = useState(false);
 
-const handleShowToast = () => {
-setShowToast(true);
-setTimeout(() => setShowToast(false), 5000); // Hide toast after 5 seconds
-};
-
 return (
 <div>
-<button onClick={handleShowToast}>Show Toast</button>
+<button onClick={()=>setShowToast(true)}>Show Toast</button
 {showToast &&
 <Toast
 message="This is a customizable toast message!"
