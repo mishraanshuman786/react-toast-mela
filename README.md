@@ -42,20 +42,24 @@ To use `react-toast-mela`, follow these steps:
     `import {Toast} from 'react-toast-mela';`
 
 2.  **Render the Toast component in your application:**
-    You need to manage the state of the toast message and its visibility. Here’s a simple example:
-    jsx  
-     `import React, { useState } from 'react';
-    import {Toast} from 'react-toast-mela';
-    const App = () => {
-    const [showToast, setShowToast] = useState(false);
-    return (
-    <div>
-    <button onClick={()=>setShowToast(true)}>Show Toast</button>
-    {showToast && <Toast message="Toast Message!" duration={3000} onClose={()=>setShowToast(false)} />}
-    </div>
-    );
-    };
-    export default App;`
+    You need to manage the state of the toast message and its visibility.
+
+## Here’s a simple example:
+
+jsx
+`import React, { useState } from 'react';
+import {Toast} from 'react-toast-mela';
+const App = () => {
+const [showToast, setShowToast] = useState(false);
+return (
+
+<div>
+<button onClick={()=>setShowToast(true)}>Show Toast</button>
+{showToast && <Toast message="Toast Message!" duration={3000} onClose={()=>setShowToast(false)} />}
+</div>
+);
+};
+export default App;`
 
 ## Props
 
@@ -96,6 +100,7 @@ const App = () => {
 const [showToast, setShowToast] = useState(false);
 
 return (
+
 <div>
 <button onClick={()=>setShowToast(true)}>Show Toast</button
 {showToast &&
