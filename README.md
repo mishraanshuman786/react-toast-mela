@@ -23,43 +23,39 @@ You can install `react-toast-mela` using npm or yarn:
 
 bash
 
-`npm install react-toast-mela`
+    npm install react-toast-mela
 
 or
 
 bash
 
-`yarn add react-toast-mela`
+    yarn add react-toast-mela
 
 ## Usage
 
 To use `react-toast-mela`, follow these steps:
 
 1.  **Import the Toast component:**
-
+        jsx
+    `import {Toast} from 'react-toast-mela';`
+2.  **Render the Toast component in your application:**
+    You need to manage the state of the toast message and its visibility. Here’s a simple example:
     jsx
 
-    `import {Toast} from 'react-toast-mela';`
+        import React, { useState } from 'react';
+           import {Toast} from 'react-toast-mela';
+          const App = () => {
+               const [showToast, setShowToast] = useState(false);
+                       return (
+                        <div>
+                          <button onClick={()=>setShowToast(true)}>Show Toast</button>
+                          {showToast && <Toast message="Toast Message!" duration={3000} onClose={()=>setShowToast(false)} />}
+                        </div>
+                      );
+                    };
+                    export default App;
 
-2.  **Render the Toast component in your application:**
-    You need to manage the state of the toast message and its visibility.
 
-## Here’s a simple example:
-
-jsx
-`import React, { useState } from 'react';
-import {Toast} from 'react-toast-mela';
-const App = () => {
-const [showToast, setShowToast] = useState(false);
-return (
-
-<div>
-<button onClick={()=>setShowToast(true)}>Show Toast</button>
-{showToast && <Toast message="Toast Message!" duration={3000} onClose={()=>setShowToast(false)} />}
-</div>
-);
-};
-export default App;`
 
 ## Props
 
@@ -72,51 +68,53 @@ The `Toast` component accepts the following props:
 ### Example
 
 jsx
-`<Toast 
-  message="This is a custom toast message!" 
-  duration={5000} 
-  onClose={() => console.log('Toast closed')} 
-/>`
+
+    <Toast
+      message="This is a custom toast message!"
+      duration={5000}
+      onClose={() => console.log('Toast closed')}
+    />
 
 ## Customization
 
 You can customize the appearance of the toast by overriding the inline styles provided in the `Toast` component. For example:
 
 jsx
-`<Toast 
-  message="Custom styled toast!" 
-  style={{ backgroundColor: 'blue', color: 'yellow', padding: '15px' }} 
-/>`
+
+    <Toast
+      message="Custom styled toast!"
+      style={{ backgroundColor: 'blue', color: 'yellow', padding: '15px' }}
+    />
 
 ## Example
 
 Here’s a more detailed example showing different ways to use and customize the `Toast` component:
 
 jsx
-`import React, { useState } from 'react';
-import {Toast} from 'react-toast-mela';
 
-const App = () => {
-const [showToast, setShowToast] = useState(false);
+    `import React, { useState } from 'react';
+    import {Toast} from 'react-toast-mela';
 
-return (
+    const App = () => {
+      const [showToast, setShowToast] = useState(false);
 
-<div>
-<button onClick={()=>setShowToast(true)}>Show Toast</button
-{showToast &&
-<Toast
-message="This is a customizable toast message!"
-duration={5000}
-onClose={() => console.log('Toast closed')}
-style={{ backgroundColor: 'blue', color: 'yellow', padding: '15px' }}
-/>
-}
-</div>
-);
-};
+      return (
+        <div>
+          <button onClick={()=>setShowToast(true)}>Show Toast</button
+          {showToast &&
+            <Toast
+              message="This is a customizable toast message!"
+              duration={5000}
+              onClose={() => console.log('Toast closed')}
+              style={{ backgroundColor: 'blue', color: 'yellow', padding: '15px' }}
+            />
+          }
+        </div>
+      );
+    };
 
 export default App;`
 
 ## License
 
-This package is licensed under the MIT License. See the LICENSE file for details.
+This package is licensed under the MIT License.
