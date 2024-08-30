@@ -1,6 +1,6 @@
 {
   "name": "react-toast-mela",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "dist/react-toast-mela.umd.js",
   "module": "dist/react-toast-mela.es.js",
   "files": [
@@ -9,8 +9,17 @@
   "scripts": {
     "build": "vite build"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "react",
+    "toast",
+    "react-toastify",
+    "react-toast-mela",
+    "notification",
+    "react-toast",
+    "customizable",
+    "UI"
+  ],
+  "author": "Anshuman Mishra <mishraanshuman@gmail.com",
   "license": "ISC",
   "description": "",
   "devDependencies": {
